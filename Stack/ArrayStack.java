@@ -39,6 +39,11 @@ class Stack{
     int peek(){
       return arr[top];
     }
+
+    int size(){
+      return top + 1;
+    }
+
   }
 
 class ArrayStack{
@@ -51,7 +56,8 @@ class ArrayStack{
     s.push(45);
     s.push(33);
     s.push(22);
-    System.out.println(s.pop());
-    System.out.println(s.peek());
+    System.out.println("Popped Element : " + s.pop());
+    System.out.println("Peeked Element : " + s.peek());
+    System.out.println("Size of Stack : " + s.size());
     }
 }

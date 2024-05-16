@@ -49,6 +49,17 @@ class Stack{
         return top.data;
     }
 
+    int size(){
+        int sizeS = 0;
+        Node curr = top;
+        while(curr != null){
+            sizeS++;
+            curr = curr.next;
+        }
+
+        return sizeS;
+    }
+
 }
 
 class LinkedListStack{
@@ -58,7 +69,8 @@ class LinkedListStack{
         s.push(30);
         s.push(54);
         s.push(67);
-        System.out.println(s.pop());
-        System.out.println(s.peek());
+        System.out.println("Popped Element : " + s.pop());
+        System.out.println("Peeked Element : " + s.peek());
+        System.out.println("Size of Stack : " + s.size());
     }
 }
