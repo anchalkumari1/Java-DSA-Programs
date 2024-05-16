@@ -34,7 +34,7 @@ class Stack{
     }
 
     int peek(){
-      return top;
+      return arr.get(top);
     }
   }
 
@@ -42,8 +42,8 @@ class ArrayListStack{
     public static void main(String args[]){
     Stack s = new Stack();
     System.out.println(s.isEmpty());
-    s.push(90);
-    s.push(89);
+    s.push(99);
+    s.push(87);
     s.push(76);
     s.push(54);
     s.push(66);
