@@ -1,3 +1,4 @@
+import java.util.*;
 class Queue{
     Stack<Integer> stk1 = new Stack<Integer>();
     Stack<Integer> stk2 = new Stack<Integer>();
@@ -17,7 +18,7 @@ class Queue{
 
     int deQueue(){
 
-        while(!stk1.isEmpty()){
+        while(stk1.isEmpty()){
             return -1;
         }
 
