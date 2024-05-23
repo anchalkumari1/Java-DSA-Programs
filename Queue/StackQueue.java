@@ -3,6 +3,10 @@ class Queue{
     Stack<Integer> stk1 = new Stack<Integer>();
     Stack<Integer> stk2 = new Stack<Integer>();
 
+    boolean isEmpty(){
+        return stk1.isEmpty();
+    }
+
     void enQueue(int x){
 
         while(!stk1.isEmpty()){
@@ -19,12 +23,23 @@ class Queue{
     int deQueue(){
 
         while(stk1.isEmpty()){
+            System.out.println("The Queue is Empty");
             return -1;
         }
 
         int x = stk1.peek();
         stk1.pop();
         return x;
+    }
+
+    int peek(){
+
+        if(isEmpty()){
+            System.out.println("The Queue is Empty");
+            return -1;
+        }
+
+        return stk1.peek();
     }
 
 }
@@ -36,9 +51,11 @@ class StackQueue{
         q.enQueue(21);
         q.enQueue(90);
         q.enQueue(55);
-
-        System.out.print(q.deQueue() + " ");
-        System.out.print(q.deQueue() + " ");
-        System.out.print(q.deQueue() + " ");
+        System.out.println("Peeked Element: " + q.peek());
+        System.out.print("Popped Element: ");
+        while(!q.isEmpty()){
+            System.out.print(q.deQueue() + " ");
+        }
+        
     }
 }
