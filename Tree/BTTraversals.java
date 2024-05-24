@@ -96,6 +96,29 @@ class BinaryTree{
 
         }
     }
+
+    int height(Node root){
+
+        if(root == null){
+            return 0;
+        }
+
+        int leftH = height(root.left);
+        int rightH = height(root.right);
+
+        return Math.max(leftH , rightH) + 1;
+    }
+
+    int count(Node root){
+        if(root == null){
+            return 0;
+        }
+
+        int lCount = count(root.left);
+        int rCount = count(root.right);
+
+        return (lCount + rCount + 1);
+    }
 }
 
 class BTTraversals{
@@ -119,5 +142,8 @@ class BTTraversals{
         System.out.println("Levelorder Traversal of Tree : ");
         tree.levelOrder(root);
         System.out.println();
+        
+        System.out.println("Height of the Tree : " + tree.height(root));
+        System.out.println("Number of Nodes : " + tree.count(root));
     }
 }
