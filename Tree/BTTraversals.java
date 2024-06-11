@@ -131,6 +131,47 @@ class BinaryTree{
         return (leftS + rightS + root.data);
     }
 
+    int diameter(Node root){
+        if(root == null){
+            return 0;
+        }
+
+        int diam1 = diameter(root.left);
+        int diam2 = diameter(root.right);
+        int diam3 = height(root.left) + height(root.right) + 1;
+
+        return Math.max(diam3, Math.max(diam1, diam2));
+    }
+
+    class TreeInfo{
+        int height;
+        int diam;
+
+        public TreeInfo(int height, int diam){
+            this.height = height;
+            this.diam = diam;
+        }
+    }
+
+    TreeInfo optDiameter(Node root){
+        if(root == null){
+            return new TreeInfo(0, 0);
+        }
+
+        TreeInfo left = optDiameter(root.left);
+        TreeInfo right = optDiameter(root.right);
+
+        int myHeight = Math.max(left.height, right.height) + 1;
+
+        int diam1 = left.diam;
+        int diam2 = right.diam;
+        int diam3 = left.height + right.height + 1;
+
+        int myDiam = Math.max(Math.max(diam1, diam2), diam3);
+
+        return new TreeInfo(myHeight, myDiam);
+    }
+
 }
 
 class BTTraversals{
@@ -158,5 +199,7 @@ class BTTraversals{
         System.out.println("Height of the Tree : " + tree.height(root));
         System.out.println("Number of Nodes : " + tree.count(root));
         System.out.println("Sum of Nodes : " + tree.sum(root));
+        System.out.println("Diameter of Tree : " + tree.diameter(root));
+        System.out.println("Diameter of Tree (through optimal approach) : " + tree.optDiameter(root).diam);
     }
 }
