@@ -119,6 +119,18 @@ class BinaryTree{
 
         return (lCount + rCount + 1);
     }
+
+    int sum(Node root){
+        if(root == null){
+            return 0;
+        }
+
+        int leftS = sum(root.left);
+        int rightS = sum(root.right);
+
+        return (leftS + rightS + root.data);
+    }
+
 }
 
 class BTTraversals{
@@ -145,5 +157,6 @@ class BTTraversals{
         
         System.out.println("Height of the Tree : " + tree.height(root));
         System.out.println("Number of Nodes : " + tree.count(root));
+        System.out.println("Sum of Nodes : " + tree.sum(root));
     }
 }
